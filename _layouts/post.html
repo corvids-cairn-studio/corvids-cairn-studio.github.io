@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="single-post">
+  {% if page.categories %}<div class="kicker">{{ page.categories | join: " · " }}</div>{% endif %}
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
+  <div class="post-body">
+    {{ content }}
+  </div>
+  <a class="read-more" href="{{ '/' | relative_url }}">← back to devlog</a>
+</article>

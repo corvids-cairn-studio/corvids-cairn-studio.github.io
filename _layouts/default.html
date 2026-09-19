@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Literata:opsz,wght@18..144,400;18..144,500;18..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% feed_meta %}
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <rect width="16" height="16" fill="#241b42"/>
+        <circle cx="8" cy="6" r="4" fill="#f0e6d8"/>
+        <rect x="6" y="9" width="4" height="2" fill="#8a8195"/>
+        <rect x="7" y="7" width="2" height="2" fill="#6a6478"/>
+        <rect x="5" y="11" width="6" height="2" fill="#4a4460"/>
+        <rect x="0" y="13" width="16" height="3" fill="#12101c"/>
+      </svg>
+      <span>{{ site.title }}</span>
+    </div>
+    <nav>
+      <a href="{{ '/' | relative_url }}">home</a>
+      <a href="https://shortanel.itch.io">games</a>
+      <a href="{{ '/' | relative_url }}">devlog</a>
+      <a href="mailto:corvidscairnstudio@gmail.com">contact</a>
+    </nav>
+    <div class="social-row">
+      <a href="https://github.com/corvids-cairn-studio">github</a>
+      <a href="https://youtube.com/@ShortyTheCrow">youtube</a>
+      <a href="https://shortanel.itch.io">itch</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  {{ content }}
+
+  <footer>
+    <div class="foot-row">
+      <span>© {{ site.time | date: '%Y' }} {{ site.title }}</span>
+      <div>
+        <a href="{{ '/' | relative_url }}">home</a> ·
+        <a href="{{ '/' | relative_url }}">devlog</a> ·
+        <a href="https://shortanel.itch.io">games</a> ·
+        <a href="mailto:corvidscairnstudio@gmail.com">contact</a>
+      </div>
+    </div>
+    <p class="copyright">built by one person and one crow.</p>
+  </footer>
+
+</div>
+</body>
+</html>

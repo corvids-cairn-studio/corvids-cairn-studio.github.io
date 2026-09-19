@@ -1,3 +1,31 @@
-theme: jekyll-theme-slate
+# --- Merge these values into your EXISTING _config.yml ---
+# Don't overwrite your current file wholesale — copy in whichever
+# of these keys you don't already have, keeping your current title/url/etc.
+
 title: Corvid's Cairn Studio
-description: Devlogs and dev updates from Corvid's Cairn Studio
+description: >-
+  A waymarker in the dark, for anyone still looking for the light.
+url: "https://corvids-cairn-studio.github.io"
+baseurl: ""
+
+markdown: kramdown
+
+# Devlog post URLs will look like:
+# /devlog/2026/09/12/wave-director-split/
+permalink: /devlog/:year/:month/:day/:title/
+
+# Shows 5 posts per page (1 featured + 4 listed). Change the number as you like.
+paginate: 5
+paginate_path: "/page:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+# Every file in _posts automatically uses _layouts/post.html
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

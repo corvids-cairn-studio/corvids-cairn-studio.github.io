@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<h1 class="page-title">devlog</h1>
+<div class="subscribe-line">
+  <span style="color:var(--ink-soft); font-size:.9rem;">{{ site.description }}</span>
+  <a href="{{ '/feed.xml' | relative_url }}">subscribe via Atom feed</a>
+</div>
+
+{% assign featured = paginator.posts | first %}
+{% if featured %}
+<div class="featured">
+  <div class="kicker">latest entry{% if featured.categories %} · {{ featured.categories | join: " · " }}{% endif %}</div>
+  <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+  <div class="post-date">{{ featured.date | date: "%B %-d, %Y" }}</div>
+  <p class="excerpt">{{ featured.excerpt | strip_html | truncatewords: 40 }}</p>
+  <a class="read-more" href="{{ featured.url | relative_url }}">read more</a>
+</div>
+{% endif %}
+
+<div class="post-list">
+  <h3 class="list-label">earlier entries</h3>
+  {% assign rest = paginator.posts | offset: 1 %}
+  {% for post in rest %}
+  <div class="post">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}{% if post.categories %} · {{ post.categories | join: " · " }}{% endif %}</div>
+    <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <a class="read-more" href="{{ post.url | relative_url }}">read more</a>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">← older posts</a>
+  {% else %}<span></span>{% endif %}
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">newer posts →</a>
+  {% endif %}
+</div>
